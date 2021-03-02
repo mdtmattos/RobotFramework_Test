@@ -1,0 +1,9 @@
+robotframework
+robotframework-requests
+robotframework-databaselibrary
+robotframework-seleniumlibrary
+robotframework-reportportal
+RESTinstance
+pyodbc
+requests
+pika
