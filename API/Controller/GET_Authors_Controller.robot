@@ -2,9 +2,9 @@
 Resource           ../../TestConfig/TestConfig.robot
 
 *** Variables ***
-${endpoint}         /api/endpoint
+${endpoint_authors}       /v1/Authors
 
 *** Keywords ***
-Dado que fiz a request para a api
-    GET             ${endpoint}
+Dado que fiz a request para a api Authors
+    GET             ${endpoint_authors}
     Output          request

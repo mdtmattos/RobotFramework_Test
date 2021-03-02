@@ -1,18 +1,18 @@
 *** Settings ***
 Library     SeleniumLibrary
-Library     biblioteca_pb.py
+#Library     biblioteca_pb.py
 Library     DatabaseLibrary
 Library     RequestsLibrary
-Library     REST
+Library     REST       http://fakerestapi.azurewebsites.net/api     ssl_verify=False
 
 # PageObjects
 
 # Controllers
+Resource            ../API/Controller/POST_Authors_Controller.robot
+Resource            ../API/Controller/GET_Authors_Controller.robot
 
 # DataBase
 Resource            ../TestConfig/DataBase.robot
-
-
 
 *** Variables ***
 ${URL}
