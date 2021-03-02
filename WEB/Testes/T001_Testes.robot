@@ -9,4 +9,3 @@ Titulo Cenarios
     Dado 
     Quando
     Então
-    E
