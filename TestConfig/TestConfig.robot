@@ -1,21 +1,21 @@
 *** Settings ***
 Library     SeleniumLibrary
-#Library     biblioteca_pb.py
 Library     DatabaseLibrary
 Library     RequestsLibrary
 Library     REST       http://fakerestapi.azurewebsites.net/api     ssl_verify=False
 
 # PageObjects
-
+Resource            ../WEB/PageObjects/P001_PageObjects.robot
 # Controllers
 Resource            ../API/Controller/POST_Authors_Controller.robot
 Resource            ../API/Controller/GET_Authors_Controller.robot
+Resource            ../WEB/Controller/C001_ConsultaCEP_Controller.robot
 
 # DataBase
 Resource            ../TestConfig/DataBase.robot
 
 *** Variables ***
-${URL}
+${URL}             https://buscacepinter.correios.com.br/app/endereco/index.php
 ${Browser}         chrome
 
 *** Keywords ***
@@ -26,7 +26,7 @@ Abrir Navegador
     Set Selenium Implicit Wait      15s
 
 Fechar Navegador
-    Closer Browser
+    Close Browser
 
 Quando eu valido que a response veio com o status code
     [Arguments]             ${RetornoEsperado}
