@@ -1,6 +1,7 @@
 *** Settings ***
 Resource        ../../TestConfig/TestConfig.robot
 Resource        ../../TestConfig/MassadeDados.robot
+Resource        ../../TestConfig/MassaDeDados.robot
 Test Setup       Abrir Navegador
 Test Teardown    Fechar Navegador
 
