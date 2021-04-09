@@ -2,8 +2,14 @@
 Library          SeleniumLibrary
 Library          DatabaseLibrary
 
+# Controllers
 Resource         ../WEB/Controller/C001_PesquisaProdutos_Controller.robot
+
+# PageObjects
 Resource         ../PageObjects/PesquisarProdutos_Page.robot
+
+# DataBase
+Resource         ../TestConfig/DataBase.robot
 
 *** Variables ***
 ${URL}        http://automationpractice.com/
