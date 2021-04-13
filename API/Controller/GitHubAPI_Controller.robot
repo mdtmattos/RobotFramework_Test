@@ -19,9 +19,8 @@ Quando pesquisar issues com state "${State}" e com label "${Label}"
     Confere sucesso na requisição   ${My_Issues}
 
 Quando eu envio a reação "${Reaction}" para a issue "${Issue_Number}"
-    ${Headers}          Create Dictionary       Accept=application/vnd.github.squirrel-girl-preview+json
-    ${My_Reaction}      POST On Session         GithubAPI       ${ISSUES_URI}/${Issue_Number}/reactions
-    ...                                         data={"content": "{Reaction}"}      headers=${Headers}
+    ${My_Reaction}      POST On Session         GithubAPI       ${ISSUES_REACT_URI}/${Issue_Number}/reactions
+    ...                                         data={"content": "${Reaction}"}      headers=${Headers}
     Log                 Meus dados:${My_Reaction.json()}
     Confere sucesso na requisição   ${My_Reaction}
 
@@ -30,5 +29,5 @@ Quando eu postar nova issue com label "${LABEL}"
     ...             user_git=${GitHub_User}
     ...             label=${LABEL}
     Log             Meu Body ficou:\n${BODY}
-    ${RESPONSE}     POST On Session    GithubAPI    ${ISSUES_URI}   data=${BODY}
+    ${RESPONSE}     POST On Session    GithubAPI    ${ISSUES_REACT_URI}   data=${BODY}
     Confere sucesso na requisição   ${RESPONSE}
