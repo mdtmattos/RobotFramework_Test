@@ -15,14 +15,6 @@ Quando eu requisitar o livro "${ID_Livro}"
     Log             ${Resposta.text}
     Set Test Variable       ${Resposta}
 
-Então verifico se retornou com o status code
-    [Arguments]         ${StatusCode}
-    Should Be equal As Strings      ${Resposta.status_code}     ${StatusCode}
-
-E verifico a reason
-    [Arguments]         ${Reason_Desejado}       
-    Should Be equal As Strings          ${Resposta.reason}      ${Reason_Desejado}
-
 E verifico se retornou uma lista com "${QTE_Livros}" livros
     Length Should Be    ${Resposta.json()}          ${QTE_Livros}
 
