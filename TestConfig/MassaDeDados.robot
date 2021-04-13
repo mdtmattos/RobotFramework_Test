@@ -4,5 +4,6 @@ ${Book_15}    id=15
 ...           pageCount=1500
 
 #API Variables
-${GitHub_User}              YourGitHubUser
-${GitHub_Pass}              YourGitHubPass
+${GitHub_User}              MyGitHubUser
+${GitHub_Pass}              MyGitHubPass
+${GitHub_Token}             MyGitHubToken

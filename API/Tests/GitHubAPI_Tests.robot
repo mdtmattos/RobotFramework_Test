@@ -12,8 +12,8 @@ Cenário: Listar issues
     Quando pesquisar issues com state "open" e com label "bug"
 
 Cenário: Enviar reação
-    Dado que eu esteja conectado e autenticado na API do GitHub
-    Quando eu envio a reação "+1" para a issue "8"
+    Dado que eu conecte e autentique na API do GitHub
+    Quando eu envio a reação "rocket" para a issue "10"
 
 Cenário: Criar uma Issue
     Dado que eu esteja conectado e autenticado na API do GitHub

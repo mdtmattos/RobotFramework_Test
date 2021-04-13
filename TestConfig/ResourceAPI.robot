@@ -17,10 +17,21 @@ ${URL_API_GITHUB}    https://api.github.com
 Dado que eu conecte a minha API
     Create Session          BooksAPI           ${URL_API}
 
+Dado que eu esteja conectado e autenticado na API do GitHub com usuario e senha
+    ${AUTH}=             Create List           ${GitHub_User}         ${GitHub_Pass}
+    Create Session       GithubAPI             ${URL_API_GITHUB}      auth=${AUTH}      disable_warnings=True
+    Set Test Variable    ${AUTH}
+
 Dado que eu esteja conectado e autenticado na API do GitHub
-    ${AUTH}=          Create List          ${GitHub_User}             ${GitHub_Pass}
-    Create Session    GithubAPI            ${URL_API_GITHUB}          auth=${AUTH}      disable_warnings=True
-    
+    ${Headers}        Create Dictionary    Authorization=Bearer ${GitHub_Token}
+    Create Session    GithubAPI            ${URL_API_GITHUB}         headers=${Headers}      disable_warnings=True
+    Set Test Variable   ${Headers}
+
+Dado que eu conecte e autentique na API do GitHub
+    ${Headers}          Create Dictionary     Accept=application/vnd.github.squirrel-girl-preview+json      Authorization=Bearer ${GitHub_Token}
+    Create Session      GithubAPI             ${URL_API_GITHUB}       headers=${Headers}      disable_warnings=True
+    Set Test Variable   ${Headers}
+
 Dado que eu esteja conectado na API do GitHub
     Create Session          GithubAPI           ${URL_API_GITHUB}    disable_warnings=True
 
