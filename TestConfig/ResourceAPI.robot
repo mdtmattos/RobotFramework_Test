@@ -1,5 +1,6 @@
 *** Settings ***
 Library         RequestsLibrary
+Library         OperatingSystem
 Library         Collections
 Library         String
 
@@ -35,7 +36,7 @@ Dado que eu conecte e autentique na API do GitHub
 Dado que eu esteja conectado na API do GitHub
     Create Session          GithubAPI           ${URL_API_GITHUB}    disable_warnings=True
 
-Confere sucesso na requisição
+Então verifico se a requisição deu sucesso
     [Arguments]      ${RESPONSE}
     Should Be True   '${RESPONSE.status_code}'=='200' or '${RESPONSE.status_code}'=='201'
     ...  msg=Erro na requisição! Verifique: ${RESPONSE}

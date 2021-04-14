@@ -1,0 +1,38 @@
+{
+    "pessoa": {
+        "nome": {
+            "primeiro_nome": "Murilo",
+            "nomes_do_meio": "Dellano",
+            "ultimo_nome": "Mattos",
+            "apelido": "Murilo"
+        },
+        "hobbies": {
+            "livros": [
+                {
+                    "titulo": "Quando o céu invade a Terra",
+                    "autor": "Bill Johnson"
+                },
+                {
+                    "titulo": "A Casa Favorita de Deus",
+                    "autor": "Tommy Tenney"
+                },
+                {
+                    "titulo": "O Tempo e a Oportunidade",
+                    "autor": "Michael Aboud"
+                }
+            ],
+            "games": {
+                "PC": [
+                    "Flight Simulator",
+                    "Combat Flight Simulator",
+                    "Age Of Empires"
+                ],
+                "VideoGame": [
+                    "Fifa",
+                    "Call of Duty",
+                    "Super Mário"
+                ]
+            }
+        }
+    }
+}

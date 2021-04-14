@@ -17,7 +17,7 @@ ${Browser}    chrome
 
 *** Keywords ***
 Abrir Navegador
-    Open Browser        ${URL}      ${Browser}
+    Open Browser        ${URL}      ${Browser}      #remote_url=http://localhost:4444/wd/hub
     Maximize Browser Window
     Set Selenium Speed              1 seconds
     Set Selenium Implicit Wait      15s
