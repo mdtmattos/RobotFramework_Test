@@ -4,7 +4,7 @@ Resource        ../../TestConfig/MassaDeDados.robot
 
 *** Test Cases ***
 Cenário: Logar na API do GitHub
-    Dado que eu esteja conectado e autenticado na API do GitHub
+    Dado que eu esteja conectado e autenticado na API do GitHub com usuario e senha
     Quando solicitar os dados do usuário
     Então verifico se a requisição deu sucesso      ${My_User_Data}
 

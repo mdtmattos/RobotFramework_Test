@@ -6,4 +6,4 @@ ${Book_15}    id=15
 #API Variables
 ${GitHub_User}              mdtmattos
 ${GitHub_Pass}              mt04102014
-${GitHub_Token}             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
+${GitHub_Token}             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

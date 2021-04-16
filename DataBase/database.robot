@@ -7,47 +7,9 @@ Documentation   [14/10/2019] https://franz-see.github.io/Robotframework-Database
 ...             Para MySQL: "pip install pymysql"
 ...             Para SQL Server: "pip install pymssql"
 ...             Para Oracle: "pip install cx-Oracle"
-Library         DatabaseLibrary
-Test Setup      Conectar no Banco de Dados
-Test Teardown   Desconectar do Banco de Dados
-
-*** Test Cases ***
-Executando scripts SQL via Arquivos
-    Executar script via ARQUIVO no Banco de Dados       ${CURDIR}/my_sql_scripts/create_table_accounts.sql
-    Executar script via ARQUIVO no Banco de Dados       ${CURDIR}/my_sql_scripts/insert_into_account.sql
-    Confere se "Murilo Mattos" foi inserido com sucesso
-
-Executando scripts SQL via STRING
-    Executar script via STRING no Banco de Dados        INSERT INTO public.account(user_id, username, password, email) VALUES (2, 'Luiz Silva', 'robot987', 'robotizando2@robot.com')
-    Confere se "Luiz Silva" foi inserido com sucesso
-
-Select Statement
-    ${RESPOSTA_SELECT}      Executar query no Banco de dados    SELECT * from account
-    Log    ${RESPOSTA_SELECT}
-    ## Para pegar um campo específico, utilize as tuplas [NUM_LINHA][NUM_COLUNA]
-    Log    Usuário ${RESPOSTA_SELECT[0][0]} - Nome: ${RESPOSTA_SELECT[0][1]} - E-mail: ${RESPOSTA_SELECT[0][3]}
-    Log    Usuário ${RESPOSTA_SELECT[1][0]} - Nome: ${RESPOSTA_SELECT[1][1]} - E-mail: ${RESPOSTA_SELECT[1][3]}
-
-Limpando Tabelas
-    Limpar Tabela    account
-    Executar script via STRING no Banco de Dados     DROP table account
+Resource        ../TestConfig/TestConfig.robot
 
 *** Keywords ***
-Conectar no Banco de Dados
-    ## PostgreSQL
-    Connect To Database   dbapiModuleName=psycopg2   dbName=robot   dbUsername=postgres   dbPassword=postgres   dbHost=localhost   dbPort=5432
-    ## SQLite 3
-      # Connect To Database Using Custom Params   dbapiModuleName=sqlite3    db_connect_string=database="./${DBName}.db", isolation_level=None
-    ## MySQL
-      # Connect To Database   dbapiModuleName=pymysql   dbName=${DBName}   dbUsername=${DBUser}   dbPassword=${DBPass}   dbHost=${DBHost}   dbPort=${DBPort}
-    ## SQL Server
-      # Connect To Database   dbapiModuleName=pymssql   dbName=${DBName}   dbUsername=${DBUser}   dbPassword=${DBPass}   dbHost=${DBHost}   dbPort=${DBPort}	  
-    ## Oracle
-      # Connect To Database Using Custom Params    dbapiModuleName=cx_Oracle    db_connect_string="${DBName}/${DBUser}@${DBHost}:${DBPort}/${DBalias}"
-
-Desconectar do Banco de Dados
-    Disconnect From Database
-
 Executar script via STRING no Banco de Dados
     [Arguments]          ${SCRIPT}
     Execute SQL String   sqlString=${SCRIPT}
