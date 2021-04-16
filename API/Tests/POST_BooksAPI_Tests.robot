@@ -1,6 +1,6 @@
 *** Settings ***
 Resource        ../../TestConfig/ResourceAPI.robot
-Resource        ../../TestConfig/MassadeDados.robot
+Resource        ../../TestConfig/MassaDeDados.robot
 
 Suite Setup     Dado que eu conecte a minha API
 
