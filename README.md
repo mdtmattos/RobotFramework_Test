@@ -3,4 +3,4 @@
 Meu projeto de teste com Robot Framework!
 
 COMANDO PARA EXECUTAR:
-robot -d .\WEB\results .\WEB\Tests\
+python -m robot -d .\WEB\results .\WEB\Tests\
